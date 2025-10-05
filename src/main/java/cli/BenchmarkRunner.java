@@ -2,6 +2,7 @@ package cli;
 
 import algorithms.ShellSort;
 import metrics.PerformanceTracker;
+import utils.CSVExporter;
 import java.util.Random;
 
 public class BenchmarkRunner {
@@ -12,12 +13,18 @@ public class BenchmarkRunner {
         int[] arr = new Random().ints(n, 0, 100000).toArray();
 
         ShellSort sorter = new ShellSort();
+
         long start = System.nanoTime();
         sorter.sort(arr, sequence);
         long end = System.nanoTime();
 
-        PerformanceTracker m = sorter.getMetrics();
+        double timeMs = (end - start) / 1e6;
+        PerformanceTracker metrics = sorter.getMetrics();
+
         System.out.printf("Sequence: %s%nTime: %.2f ms%nComparisons: %d%nSwaps: %d%n",
-                sequence, (end - start) / 1e6, m.getComparisons(), m.getSwaps());
+                sequence, timeMs, metrics.getComparisons(), metrics.getSwaps());
+
+        CSVExporter exporter = new CSVExporter("docs/performance-data/shellsort-results.csv");
+        exporter.appendResult(n, sequence, timeMs, metrics.getComparisons(), metrics.getSwaps());
     }
 }

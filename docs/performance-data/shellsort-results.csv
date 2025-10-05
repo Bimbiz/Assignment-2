@@ -1,0 +1,2 @@
+n,sequence,time_ms,comparisons,swaps
+10000,knuth,5.86,229780,159019

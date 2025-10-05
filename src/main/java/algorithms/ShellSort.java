@@ -24,14 +24,11 @@ public class ShellSort {
     }
 
     private int[] generateGaps(int n, String type) {
-        switch (type.toLowerCase()) {
-            case "knuth":
-                return knuthSequence(n);
-            case "sedgewick":
-                return sedgewickSequence(n);
-            default:
-                return shellSequence(n);
-        }
+        return switch (type.toLowerCase()) {
+            case "knuth" -> knuthSequence(n);
+            case "sedgewick" -> sedgewickSequence(n);
+            default -> shellSequence(n);
+        };
     }
 
     private int[] shellSequence(int n) {
