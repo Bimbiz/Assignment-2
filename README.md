@@ -59,7 +59,7 @@ Theoretical Complexity
 | Worst | O(n²)           | O(1) |
 
 Peer Review Summary
-Partner’s Algorithm: Heap Sort (implemented by [Имя партнёра])
+Partner’s Algorithm: Heap Sort (implemented by Kuanysh)
 
 - Verified time complexity: O(n log n)
 - Memory usage: O(1)
@@ -71,6 +71,7 @@ Deliverables
 • Report — analysis-report.pdf (theoretical + peer review)
 • Performance Data — CSV files and plots
 • Git Workflow — clean commit history
+
 
 
 
